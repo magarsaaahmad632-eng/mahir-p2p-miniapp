@@ -1,101 +1,337 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAHIR P2P</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #111;
-        }
+  <title>MAHIR P2P</title>
 
-        .container {
-            max-width: 500px;
-            margin: auto;
-            padding: 20px;
-        }
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        .logo {
-            text-align: center;
-            margin: 30px 0;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        .logo h1 {
-            margin-bottom: 5px;
-        }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
 
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 18px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,.08);
-        }
+    .container {
+      max-width: 520px;
+      margin: auto;
+      padding: 25px 18px;
+    }
 
-        input {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 14px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-        }
+    .logo {
+      text-align: center;
+      margin: 35px 0;
+    }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            margin-top: 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    .logo h1 {
+      font-size: 38px;
+      margin: 0;
+    }
 
-        .primary {
-            background: #168cff;
-            color: white;
-        }
+    .logo p {
+      font-size: 20px;
+      color: #333;
+    }
 
-        .secondary {
-            background: #eee;
-        }
-    </style>
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 22px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      margin-top: 12px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #168cff;
+      color: white;
+    }
+
+    .secondary {
+      background: #eee;
+      color: #111;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .home {
+      text-align: center;
+    }
+
+    .home button {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="logo">
-        <h1>🔐 MAHIR P2P</h1>
-        <p>P2P Secure Exchange</p>
+  <div class="logo">
+    <h1>🔐 MAHIR P2P</h1>
+    <p>P2P Secure Exchange</p>
+  </div>
+
+  <!-- SIGN UP -->
+  <div class="card" id="signupPage">
+
+    <h2>👤 Account Uumi</h2>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Email kee galchi"
+      autocomplete="email"
+    >
+
+    <button class="primary" onclick="sendOTP()">
+      ➡️ OTP Ergi
+    </button>
+
+    <div id="message"></div>
+
+  </div>
+
+  <!-- OTP -->
+  <div class="card hidden" id="otpPage">
+
+    <h2>🔐 OTP Mirkaneessi</h2>
+
+    <p style="text-align:center;">
+      Koodiin OTP email kee irratti ergama.
+    </p>
+
+    <input
+      type="text"
+      id="otp"
+      placeholder="OTP 6-digit galchi"
+      maxlength="6"
+      inputmode="numeric"
+    >
+
+    <button class="primary" onclick="verifyOTP()">
+      ✅ Verify OTP
+    </button>
+
+    <button class="secondary" onclick="backToSignup()">
+      ↩️ Deebi'i
+    </button>
+
+    <div id="otpMessage"></div>
+
+  </div>
+
+  <!-- HOME -->
+  <div class="card hidden" id="homePage">
+
+    <div class="home">
+
+      <h2>🎉 Baga Nagaan Dhuftan!</h2>
+
+      <p id="userEmail"></p>
+
+      <button class="primary">
+        🔄 P2P Exchange
+      </button>
+
+      <button class="secondary">
+        📢 My Ads
+      </button>
+
+      <button class="secondary">
+        📋 My Orders
+      </button>
+
+      <button class="secondary">
+        👤 Profile
+      </button>
+
+      <button class="secondary" onclick="logout()">
+        🚪 Logout
+      </button>
+
     </div>
 
-    <div class="card">
-
-        <h2>👤 Account Uumi</h2>
-
-        <input
-            type="text"
-            placeholder="Email ykn Phone Number"
-        >
-
-        <input
-            type="password"
-            placeholder="Password"
-        >
-
-        <button class="primary">
-            ➡️ Sign Up
-        </button>
-
-    </div>
+  </div>
 
 </div>
 
+<script>
+
+  // ==========================================
+  // SUPABASE CONFIGURATION
+  // ==========================================
+
+  const SUPABASE_URL = "https://immtkgxzwlqmn...supabase.co";
+
+  const SUPABASE_KEY = "sb_publishable_Pc0Hz90H_LFWTwbWPw7G4Q_0a8fLLIH";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+  // ==========================================
+  // SEND OTP
+  // ==========================================
+
+  async function sendOTP() {
+
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message");
+
+    if (!email) {
+      message.innerText = "❌ Mee email kee galchi.";
+      return;
+    }
+
+    message.innerText = "⏳ OTP ergamaa jira...";
+
+    const { error } = await supabaseClient.auth.signInWithOtp({
+      email: email,
+      options: {
+        shouldCreateUser: true
+      }
+    });
+
+    if (error) {
+
+      message.innerText =
+        "❌ Rakkoo: " + error.message;
+
+      return;
+    }
+
+    message.innerText =
+      "✅ OTP email kee irratti ergamame.";
+
+    document.getElementById("signupPage")
+      .classList.add("hidden");
+
+    document.getElementById("otpPage")
+      .classList.remove("hidden");
+  }
+
+
+  // ==========================================
+  // VERIFY OTP
+  // ==========================================
+
+  async function verifyOTP() {
+
+    const email = document.getElementById("email").value.trim();
+    const otp = document.getElementById("otp").value.trim();
+
+    const message = document.getElementById("otpMessage");
+
+    if (!otp) {
+      message.innerText = "❌ OTP galchi.";
+      return;
+    }
+
+    message.innerText = "⏳ OTP mirkaneessaa jira...";
+
+    const { data, error } =
+      await supabaseClient.auth.verifyOtp({
+        email: email,
+        token: otp,
+        type: "email"
+      });
+
+    if (error) {
+
+      message.innerText =
+        "❌ OTP sirrii miti ykn yeroon isaa darbe.";
+
+      return;
+    }
+
+    message.innerText =
+      "✅ Account kee mirkanaa'e!";
+
+    document.getElementById("otpPage")
+      .classList.add("hidden");
+
+    document.getElementById("homePage")
+      .classList.remove("hidden");
+
+    document.getElementById("userEmail").innerText =
+      "📧 " + email;
+  }
+
+
+  // ==========================================
+  // BACK
+  // ==========================================
+
+  function backToSignup() {
+
+    document.getElementById("otpPage")
+      .classList.add("hidden");
+
+    document.getElementById("signupPage")
+      .classList.remove("hidden");
+
+  }
+
+
+  // ==========================================
+  // LOGOUT
+  // ==========================================
+
+  async function logout() {
+
+    await supabaseClient.auth.signOut();
+
+    document.getElementById("homePage")
+      .classList.add("hidden");
+
+    document.getElementById("signupPage")
+      .classList.remove("hidden");
+
+  }
+
+</script>
+
 </body>
-</html>
+    </html>
