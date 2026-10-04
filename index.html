@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
 <title>ETHIO EXCHANGE</title>
 
@@ -45,8 +44,6 @@ button{
         #030806;
 }
 
-/* PAGES */
-
 .page{
     display:none;
 }
@@ -54,8 +51,6 @@ button{
 .page.active{
     display:block;
 }
-
-/* LOGO */
 
 .logo{
     width:125px;
@@ -71,12 +66,8 @@ button{
     height:100%;
     object-fit:contain;
     display:block;
-    filter:drop-shadow(
-        0 0 28px rgba(32,232,144,.30)
-    );
+    filter:drop-shadow(0 0 28px rgba(32,232,144,.30));
 }
-
-/* BRAND */
 
 .brand{
     text-align:center;
@@ -95,8 +86,6 @@ button{
     letter-spacing:2px;
     margin-top:7px;
 }
-
-/* HERO */
 
 .hero{
     margin-top:30px;
@@ -121,8 +110,6 @@ button{
     font-size:14px;
 }
 
-/* FEATURES */
-
 .features{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -134,12 +121,7 @@ button{
     min-height:120px;
     padding:18px 14px;
     border-radius:20px;
-    background:
-        linear-gradient(
-            145deg,
-            #0c2419,
-            #07140e
-        );
+    background:linear-gradient(145deg,#0c2419,#07140e);
     border:1px solid #174936;
 }
 
@@ -160,19 +142,13 @@ button{
     font-size:11px;
 }
 
-/* BUTTON */
-
 .primary{
     width:100%;
     margin-top:25px;
     padding:17px;
     border:0;
     border-radius:17px;
-    background:linear-gradient(
-        135deg,
-        #27f09b,
-        #12c979
-    );
+    background:linear-gradient(135deg,#27f09b,#12c979);
     color:#03130c;
     font-size:16px;
     font-weight:900;
@@ -190,8 +166,6 @@ button{
     color:#637970;
     font-size:11px;
 }
-
-/* KYC */
 
 .topbar{
     display:flex;
@@ -299,8 +273,6 @@ button{
     line-height:1.55;
 }
 
-/* DOCUMENT */
-
 .option{
     width:100%;
     display:flex;
@@ -314,6 +286,10 @@ button{
     color:#fff;
     text-align:left;
     cursor:pointer;
+}
+
+.option:active{
+    transform:scale(.98);
 }
 
 .option-icon{
@@ -336,8 +312,6 @@ button{
     color:#748a80;
     margin-top:5px;
 }
-
-/* CAMERA */
 
 .camera-box{
     width:100%;
@@ -379,8 +353,6 @@ button{
     display:none;
 }
 
-/* REVIEW */
-
 .review-card{
     margin-top:22px;
     padding:20px;
@@ -392,9 +364,11 @@ button{
 .review-row{
     display:flex;
     justify-content:space-between;
+    align-items:center;
     padding:13px 0;
     border-bottom:1px solid #173026;
     font-size:13px;
+    gap:15px;
 }
 
 .review-row:last-child{
@@ -404,8 +378,6 @@ button{
 .review-row span{
     color:#71877d;
 }
-
-/* SUCCESS */
 
 .success{
     text-align:center;
@@ -435,6 +407,26 @@ button{
     line-height:1.55;
     font-size:13px;
 }
+
+@media(max-width:360px){
+    .app{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .title{
+        font-size:24px;
+    }
+
+    .card{
+        min-height:110px;
+        padding:15px 12px;
+    }
+}
 </style>
 </head>
 
@@ -442,18 +434,14 @@ button{
 
 <div class="app">
 
-<!-- =========================
-     WELCOME
-========================= -->
+<!-- WELCOME -->
 
 <section id="welcome" class="page active">
 
     <div class="logo">
-
         <img
             src="https://magarsaaahmad632-eng.github.io/mahir-p2p-miniapp/ethio-logo.png"
             alt="ETHIO EXCHANGE">
-
     </div>
 
     <div class="brand">
@@ -506,7 +494,6 @@ button{
 
     </div>
 
-    <!-- IMPORTANT: onclick -->
     <button
         type="button"
         class="primary"
@@ -523,9 +510,7 @@ button{
 </section>
 
 
-<!-- =========================
-     KYC
-========================= -->
+<!-- KYC -->
 
 <section id="kyc" class="page">
 
@@ -562,10 +547,7 @@ button{
     <div class="kyc-box">
 
         <div class="kyc-item">
-
-            <div class="kyc-item-icon">
-                🪪
-            </div>
+            <div class="kyc-item-icon">🪪</div>
 
             <div>
                 <strong>ID Card / Passport</strong>
@@ -573,14 +555,10 @@ button{
             </div>
 
             <div class="arrow">›</div>
-
         </div>
 
         <div class="kyc-item">
-
-            <div class="kyc-item-icon">
-                📸
-            </div>
+            <div class="kyc-item-icon">📸</div>
 
             <div>
                 <strong>Live Document Capture</strong>
@@ -588,14 +566,10 @@ button{
             </div>
 
             <div class="arrow">›</div>
-
         </div>
 
         <div class="kyc-item">
-
-            <div class="kyc-item-icon">
-                🤳
-            </div>
+            <div class="kyc-item-icon">🤳</div>
 
             <div>
                 <strong>Face Verification</strong>
@@ -603,14 +577,10 @@ button{
             </div>
 
             <div class="arrow">›</div>
-
         </div>
 
         <div class="kyc-item">
-
-            <div class="kyc-item-icon">
-                📹
-            </div>
+            <div class="kyc-item-icon">📹</div>
 
             <div>
                 <strong>Liveness Check</strong>
@@ -618,7 +588,6 @@ button{
             </div>
 
             <div class="arrow">›</div>
-
         </div>
 
     </div>
@@ -640,9 +609,7 @@ button{
 </section>
 
 
-<!-- =========================
-     DOCUMENT
-========================= -->
+<!-- DOCUMENT -->
 
 <section id="document" class="page">
 
@@ -681,9 +648,7 @@ button{
         class="option"
         onclick="selectDocument('National ID')">
 
-        <div class="option-icon">
-            🪪
-        </div>
+        <div class="option-icon">🪪</div>
 
         <div>
             <strong>National ID</strong>
@@ -697,9 +662,7 @@ button{
         class="option"
         onclick="selectDocument('Passport')">
 
-        <div class="option-icon">
-            📕
-        </div>
+        <div class="option-icon">📕</div>
 
         <div>
             <strong>Passport</strong>
@@ -711,9 +674,7 @@ button{
 </section>
 
 
-<!-- =========================
-     DOCUMENT CAPTURE
-========================= -->
+<!-- DOCUMENT CAPTURE -->
 
 <section id="documentCapture" class="page">
 
@@ -732,6 +693,10 @@ button{
             STEP 2 / 4
         </div>
 
+    </div>
+
+    <div class="kyc-icon">
+        📸
     </div>
 
     <div class="title">
@@ -784,9 +749,7 @@ button{
 </section>
 
 
-<!-- =========================
-     FACE
-========================= -->
+<!-- FACE -->
 
 <section id="face" class="page">
 
@@ -861,9 +824,7 @@ button{
 </section>
 
 
-<!-- =========================
-     LIVENESS
-========================= -->
+<!-- LIVENESS -->
 
 <section id="liveness" class="page">
 
@@ -933,9 +894,7 @@ button{
 </section>
 
 
-<!-- =========================
-     REVIEW
-========================= -->
+<!-- REVIEW -->
 
 <section id="review" class="page">
 
@@ -973,9 +932,7 @@ button{
 
         <div class="review-row">
             <span>Document</span>
-            <strong id="selectedDocument">
-                —
-            </strong>
+            <strong id="selectedDocument">—</strong>
         </div>
 
         <div class="review-row">
@@ -1012,9 +969,7 @@ button{
 </section>
 
 
-<!-- =========================
-     SUCCESS
-========================= -->
+<!-- SUCCESS -->
 
 <section id="success" class="page">
 
@@ -1055,175 +1010,213 @@ button{
 
 <script>
 
-/* =========================
-   TELEGRAM
-========================= */
+/* TELEGRAM */
 
-if(
+if (
     window.Telegram &&
     window.Telegram.WebApp
-){
+) {
     window.Telegram.WebApp.ready();
     window.Telegram.WebApp.expand();
 }
 
 
-/* =========================
-   PAGE FUNCTION
-========================= */
+/* PAGE SYSTEM */
 
-function showPage(pageId){
+function showPage(pageId) {
 
-    const pages =
-        document.querySelectorAll(".page");
-
-    pages.forEach(function(page){
-
+    document.querySelectorAll(".page").forEach(function(page) {
         page.classList.remove("active");
-
     });
 
-    const page =
-        document.getElementById(pageId);
+    const page = document.getElementById(pageId);
 
-    if(page){
-
+    if (page) {
         page.classList.add("active");
 
-        window.scrollTo(0,0);
-
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
     }
 }
 
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
-function goHome(){
-
+function goHome() {
     showPage("welcome");
-
 }
 
 
-/* =========================
-   GET STARTED
-========================= */
+/* GET STARTED */
 
-function openKYC(){
-
+function openKYC() {
     showPage("kyc");
-
 }
 
 
-/* =========================
-   START KYC
-========================= */
+/* START KYC */
 
-function openDocuments(){
-
+function openDocuments() {
     showPage("document");
-
 }
 
 
-/* =========================
-   DOCUMENT
-========================= */
+/* DOCUMENT */
 
 let selectedDocument = "";
 
-function selectDocument(type){
+function selectDocument(type) {
 
     selectedDocument = type;
 
-    showPage("documentCapture");
+    const selected =
+        document.getElementById("selectedDocument");
 
+    if (selected) {
+        selected.textContent = type;
+    }
+
+    showPage("documentCapture");
 }
 
 
-/* =========================
-   DOCUMENT CAPTURE
-========================= */
+/* DOCUMENT CAPTURE */
 
-function captureDocument(){
+function captureDocument() {
 
     const input =
         document.getElementById("documentFile");
 
-    input.click();
-
+    if (input) {
+        input.click();
+    }
 }
 
 
 document
 .getElementById("documentFile")
-.addEventListener(
-    "change",
-    function(){
+.addEventListener("change", function() {
 
-        const file = this.files[0];
+    const file = this.files[0];
 
-        if(!file){
-            return;
-        }
-
-        const preview =
-            document.getElementById(
-                "documentPreview"
-            );
-
-        const placeholder =
-            document.getElementById(
-                "documentPlaceholder"
-            );
-
-        preview.src =
-            URL.createObjectURL(file);
-
-        preview.style.display =
-            "block";
-
-        placeholder.style.display =
-            "none";
-
-        const button =
-            document.getElementById(
-                "documentButton"
-            );
-
-        button.innerHTML =
-            "➜ CONTINUE";
-
-        button.onclick =
-            function(){
-
-                showPage("face");
-
-            };
-
+    if (!file) {
+        return;
     }
-);
+
+    const preview =
+        document.getElementById("documentPreview");
+
+    const placeholder =
+        document.getElementById("documentPlaceholder");
+
+    const button =
+        document.getElementById("documentButton");
+
+    preview.src =
+        URL.createObjectURL(file);
+
+    preview.style.display = "block";
+
+    placeholder.style.display = "none";
+
+    button.innerHTML =
+        "➜ CONTINUE";
+
+    button.onclick =
+        function() {
+            showPage("face");
+        };
+
+});
 
 
-/* =========================
-   DOCUMENT BACK
-========================= */
+/* DOCUMENT BACK */
 
-function openDocumentCapture(){
-
+function openDocumentCapture() {
     showPage("documentCapture");
-
 }
 
 
-/* =========================
-   FACE
-========================= */
+/* FACE */
 
-function captureFace(){
+function captureFace() {
 
     const input =
         document.getElementById("faceFile");
+
+    if (input) {
+        input.click();
+    }
+}
+
+
+document
+.getElementById("faceFile")
+.addEventListener("change", function() {
+
+    const file = this.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    const preview =
+        document.getElementById("facePreview");
+
+    const placeholder =
+        document.getElementById("facePlaceholder");
+
+    const button =
+        document.getElementById("faceButton");
+
+    preview.src =
+        URL.createObjectURL(file);
+
+    preview.style.display = "block";
+
+    placeholder.style.display = "none";
+
+    button.innerHTML =
+        "➜ CONTINUE";
+
+    button.onclick =
+        function() {
+            showPage("liveness");
+        };
+
+});
+
+
+/* FACE BACK */
+
+function openFace() {
+    showPage("face");
+}
+
+
+/* LIVENESS */
+
+function completeLiveness() {
+    showPage("review");
+}
+
+
+/* LIVENESS BACK */
+
+function openLiveness() {
+    showPage("liveness");
+}
+
+
+/* SUBMIT */
+
+function submitKYC() {
+    showPage("success");
+}
+
+</script>
+
+</body>
+          </html>
