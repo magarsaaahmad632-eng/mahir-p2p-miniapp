@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0,user-scalable=no">
+
 <title>ETHIO EXCHANGE</title>
 
 <style>
@@ -10,35 +13,74 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    background:#07110d;
+    background:#030806;
     color:#fff;
     min-height:100vh;
 }
 
-.app{
-    max-width:480px;
-    margin:auto;
-    min-height:100vh;
-    padding:22px 18px;
+button{
+    font-family:inherit;
+    -webkit-tap-highlight-color:transparent;
 }
 
-.logo{
-    width:82px;
-    height:82px;
-    margin:10px auto 18px;
-    border-radius:50%;
-    background:linear-gradient(145deg,#19e68c,#087c4b);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:32px;
-    font-weight:900;
-    box-shadow:0 0 35px rgba(25,230,140,.25);
+.app{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    margin:auto;
+    padding:20px 17px 35px;
+    background:
+        radial-gradient(circle at 50% 0%,
+        rgba(20,230,140,.10),
+        transparent 35%),
+        #030806;
 }
+
+.page{
+    display:none;
+    animation:fade .25s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* LOGO */
+
+.logo{
+    width:105px;
+    height:105px;
+    margin:5px auto 15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:drop-shadow(
+        0 0 25px rgba(25,230,140,.30)
+    );
+}
+
+/* BRAND */
 
 .brand{
     text-align:center;
@@ -47,22 +89,29 @@ body{
     letter-spacing:.5px;
 }
 
-.sub{
-    text-align:center;
-    color:#8ea69b;
-    font-size:12px;
-    margin-top:7px;
-    letter-spacing:1.5px;
+.brand span{
+    color:#20e890;
 }
 
+.sub{
+    text-align:center;
+    color:#81968c;
+    font-size:11px;
+    margin-top:7px;
+    letter-spacing:2px;
+}
+
+/* HERO */
+
 .hero{
-    margin-top:30px;
+    margin-top:32px;
     text-align:center;
 }
 
 .hero h1{
-    font-size:30px;
-    line-height:1.15;
+    font-size:31px;
+    line-height:1.12;
+    font-weight:900;
 }
 
 .hero h1 span{
@@ -70,29 +119,39 @@ body{
 }
 
 .hero p{
-    color:#91a59c;
-    margin-top:12px;
-    line-height:1.5;
+    color:#8da29a;
+    margin:13px auto 0;
+    max-width:350px;
+    line-height:1.55;
     font-size:14px;
 }
+
+/* FEATURES */
 
 .features{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:12px;
-    margin-top:25px;
+    margin-top:27px;
 }
 
 .card{
-    background:#0d1b15;
-    border:1px solid #19382b;
-    border-radius:18px;
-    padding:17px 13px;
+    background:linear-gradient(
+        145deg,
+        rgba(15,42,31,.95),
+        rgba(7,22,16,.95)
+    );
+    border:1px solid #174936;
+    border-radius:20px;
+    padding:18px 13px;
+    min-height:120px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025);
 }
 
 .icon{
-    font-size:25px;
-    margin-bottom:10px;
+    font-size:26px;
+    margin-bottom:11px;
 }
 
 .card strong{
@@ -102,81 +161,128 @@ body{
 
 .card small{
     display:block;
-    color:#789187;
-    margin-top:5px;
+    color:#71877d;
+    margin-top:6px;
     font-size:11px;
+    line-height:1.35;
 }
 
-.start{
+/* BUTTON */
+
+.primary{
     width:100%;
     margin-top:25px;
     border:0;
-    border-radius:16px;
+    border-radius:17px;
     padding:17px;
-    background:#20e890;
+    background:linear-gradient(
+        135deg,
+        #27f09b,
+        #12c979
+    );
     color:#03130c;
     font-size:16px;
     font-weight:900;
     cursor:pointer;
+    box-shadow:
+        0 10px 30px rgba(25,230,140,.16);
+}
+
+.primary:active{
+    transform:scale(.98);
 }
 
 .security{
     text-align:center;
-    color:#71877e;
+    color:#63786f;
     font-size:11px;
     margin-top:17px;
 }
 
-.page{
-    display:none;
-}
+/* TOP BAR */
 
-.page.active{
-    display:block;
-}
-
-.back{
-    background:#10221a;
-    color:#fff;
-    border:1px solid #203d30;
-    padding:10px 14px;
-    border-radius:12px;
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     margin-bottom:25px;
 }
 
-.kyc-title{
+.back{
+    background:#0d2118;
+    color:#fff;
+    border:1px solid #1b4434;
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.step{
+    color:#6f877d;
+    font-size:12px;
+}
+
+/* KYC */
+
+.kyc-icon-main{
+    width:64px;
+    height:64px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0c2b1e;
+    border:1px solid #1a5941;
+    font-size:30px;
+    margin-bottom:17px;
+}
+
+.title{
     font-size:27px;
     font-weight:900;
+    line-height:1.15;
 }
 
-.kyc-desc{
-    color:#8da198;
-    margin-top:8px;
-    line-height:1.5;
+.description{
+    color:#879d93;
+    margin-top:9px;
+    line-height:1.55;
+    font-size:14px;
 }
+
+/* KYC LIST */
 
 .kyc-box{
-    margin-top:22px;
-    background:#0d1b15;
-    border:1px solid #19382b;
+    margin-top:23px;
+    background:#091710;
+    border:1px solid #173c2d;
     border-radius:20px;
-    padding:18px;
+    padding:7px 17px;
 }
 
 .kyc-item{
     display:flex;
-    gap:13px;
+    gap:14px;
     align-items:center;
-    padding:14px 0;
-    border-bottom:1px solid #193027;
+    padding:17px 0;
+    border-bottom:1px solid #173026;
 }
 
 .kyc-item:last-child{
     border-bottom:0;
 }
 
-.kyc-icon{
-    font-size:24px;
+.kyc-item-icon{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    background:#0d3324;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    flex-shrink:0;
 }
 
 .kyc-item strong{
@@ -185,44 +291,198 @@ body{
 
 .kyc-item small{
     display:block;
-    color:#789187;
-    margin-top:4px;
+    color:#71877d;
+    margin-top:5px;
+    font-size:11px;
 }
+
+.arrow{
+    margin-left:auto;
+    color:#20e890;
+    font-size:20px;
+}
+
+/* NOTICE */
 
 .notice{
     margin-top:18px;
-    padding:14px;
-    background:#10241b;
-    border-radius:14px;
-    color:#9db0a7;
-    font-size:12px;
+    padding:15px;
+    background:#0b2118;
+    border:1px solid #143b2b;
+    border-radius:15px;
+    color:#91a69d;
+    font-size:11px;
+    line-height:1.55;
 }
 
-.kyc-btn{
+/* DOCUMENT */
+
+.option{
+    background:#091710;
+    border:1px solid #173c2d;
+    border-radius:18px;
+    padding:18px;
+    margin-top:13px;
     width:100%;
-    margin-top:20px;
-    padding:16px;
-    border:0;
+    color:#fff;
+    text-align:left;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.option-icon{
+    width:50px;
+    height:50px;
     border-radius:15px;
-    background:#20e890;
-    color:#03130c;
-    font-weight:900;
+    background:#0c3022;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+}
+
+.option strong{
     font-size:15px;
+}
+
+.option small{
+    display:block;
+    color:#748a80;
+    margin-top:5px;
+}
+
+/* CAMERA */
+
+.camera-box{
+    margin-top:22px;
+    width:100%;
+    min-height:260px;
+    background:#07110d;
+    border:1px dashed #1b6147;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    overflow:hidden;
+    position:relative;
+}
+
+.camera-box video,
+.camera-box img{
+    width:100%;
+    max-height:330px;
+    object-fit:cover;
+    display:none;
+}
+
+.camera-placeholder{
+    text-align:center;
+    padding:30px;
+}
+
+.camera-placeholder .big{
+    font-size:48px;
+    margin-bottom:13px;
+}
+
+.camera-placeholder p{
+    color:#7e958b;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.file-input{
+    display:none;
+}
+
+/* REVIEW */
+
+.review-card{
+    margin-top:22px;
+    background:#091710;
+    border:1px solid #173c2d;
+    border-radius:20px;
+    padding:20px;
+}
+
+.review-row{
+    display:flex;
+    justify-content:space-between;
+    padding:13px 0;
+    border-bottom:1px solid #173026;
+    font-size:13px;
+}
+
+.review-row:last-child{
+    border-bottom:0;
+}
+
+.review-row span:first-child{
+    color:#71877d;
+}
+
+.status{
+    color:#ffc857;
+    font-weight:700;
+}
+
+/* SUCCESS */
+
+.success{
+    text-align:center;
+    padding-top:60px;
+}
+
+.success-icon{
+    width:90px;
+    height:90px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    background:#0c3525;
+    border:1px solid #20e890;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    box-shadow:0 0 35px rgba(32,232,144,.15);
+}
+
+.success h2{
+    font-size:26px;
+}
+
+.success p{
+    color:#849990;
+    margin-top:10px;
+    line-height:1.55;
+    font-size:13px;
 }
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
-<!-- WELCOME -->
+<!-- =====================================
+     WELCOME
+===================================== -->
+
 <section id="welcome" class="page active">
 
-    <div class="logo">EX</div>
+    <div class="logo">
+        <img
+            src="ethio-logo.png"
+            alt="ETHIO EXCHANGE Logo"
+        >
+    </div>
 
     <div class="brand">
-        ETHIO EXCHANGE
+        ETHIO <span>EXCHANGE</span>
     </div>
 
     <div class="sub">
@@ -230,6 +490,7 @@ body{
     </div>
 
     <div class="hero">
+
         <h1>
             Trade Crypto.<br>
             <span>Simple & Secure.</span>
@@ -239,7 +500,9 @@ body{
             Buy and sell USDT with ETB
             through a secure P2P marketplace.
         </p>
+
     </div>
+
 
     <div class="features">
 
@@ -269,7 +532,10 @@ body{
 
     </div>
 
-    <button class="start" id="getStarted">
+
+    <button
+        class="primary"
+        id="getStarted">
         🚀 GET STARTED
     </button>
 
@@ -280,97 +546,666 @@ body{
 </section>
 
 
-<!-- KYC -->
+<!-- =====================================
+     KYC INTRO
+===================================== -->
+
 <section id="kyc" class="page">
 
-    <button class="back" id="back">
-        ← Back
-    </button>
+    <div class="topbar">
 
-    <div class="kyc-title">
-        🛡️ IDENTITY VERIFICATION
+        <button
+            class="back"
+            id="backWelcome">
+            ← Back
+        </button>
+
+        <div class="step">
+            STEP 1 / 4
+        </div>
+
     </div>
 
-    <p class="kyc-desc">
+
+    <div class="kyc-icon-main">
+        🛡️
+    </div>
+
+    <div class="title">
+        Identity Verification
+    </div>
+
+    <div class="description">
         Before using ETHIO EXCHANGE,
-        please complete your KYC verification.
-    </p>
+        please complete your identity verification.
+    </div>
+
 
     <div class="kyc-box">
 
         <div class="kyc-item">
-            <div class="kyc-icon">🪪</div>
+
+            <div class="kyc-item-icon">
+                🪪
+            </div>
+
             <div>
                 <strong>ID Card / Passport</strong>
-                <small>Use a valid identity document</small>
+                <small>
+                    Use a valid identity document
+                </small>
             </div>
+
+            <div class="arrow">›</div>
+
         </div>
 
+
         <div class="kyc-item">
-            <div class="kyc-icon">📸</div>
+
+            <div class="kyc-item-icon">
+                📸
+            </div>
+
             <div>
-                <strong>Document Live Capture</strong>
-                <small>Capture directly from camera</small>
+                <strong>Live Document Capture</strong>
+                <small>
+                    Capture your document directly
+                </small>
             </div>
+
+            <div class="arrow">›</div>
+
         </div>
 
+
         <div class="kyc-item">
-            <div class="kyc-icon">🤳</div>
+
+            <div class="kyc-item-icon">
+                🤳
+            </div>
+
             <div>
                 <strong>Face Verification</strong>
-                <small>Verify your identity</small>
+                <small>
+                    Verify your identity
+                </small>
             </div>
+
+            <div class="arrow">›</div>
+
         </div>
 
+
         <div class="kyc-item">
-            <div class="kyc-icon">📹</div>
+
+            <div class="kyc-item-icon">
+                📹
+            </div>
+
             <div>
                 <strong>Liveness Check</strong>
-                <small>Confirm you are a real person</small>
+                <small>
+                    Confirm you are a real person
+                </small>
             </div>
+
+            <div class="arrow">›</div>
+
         </div>
 
     </div>
+
 
     <div class="notice">
         🔒 Your verification information is handled
-        securely and is used only for identity verification.
+        securely and is used only for identity
+        verification.
     </div>
 
-    <button class="kyc-btn" id="startKyc">
+
+    <button
+        class="primary"
+        id="startKyc">
         🛡️ START KYC
     </button>
 
 </section>
 
+
+<!-- =====================================
+     DOCUMENT TYPE
+===================================== -->
+
+<section id="document" class="page">
+
+    <div class="topbar">
+
+        <button
+            class="back"
+            id="backKyc">
+            ← Back
+        </button>
+
+        <div class="step">
+            STEP 2 / 4
+        </div>
+
+    </div>
+
+
+    <div class="kyc-icon-main">
+        🪪
+    </div>
+
+    <div class="title">
+        Choose Document
+    </div>
+
+    <div class="description">
+        Select the identity document you want
+        to use for verification.
+    </div>
+
+
+    <button
+        class="option"
+        data-document="National ID">
+
+        <div class="option-icon">
+            🪪
+        </div>
+
+        <div>
+            <strong>National ID</strong>
+            <small>
+                Government issued identity card
+            </small>
+        </div>
+
+    </button>
+
+
+    <button
+        class="option"
+        data-document="Passport">
+
+        <div class="option-icon">
+            📕
+        </div>
+
+        <div>
+            <strong>Passport</strong>
+            <small>
+                Valid international passport
+            </small>
+        </div>
+
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     DOCUMENT CAMERA
+===================================== -->
+
+<section id="documentCapture" class="page">
+
+    <div class="topbar">
+
+        <button
+            class="back"
+            id="backDocument">
+            ← Back
+        </button>
+
+        <div class="step">
+            STEP 2 / 4
+        </div>
+
+    </div>
+
+
+    <div class="title">
+        Live Document Capture
+    </div>
+
+    <div class="description">
+        Capture your selected document clearly.
+        Make sure all details are visible.
+    </div>
+
+
+    <div class="camera-box">
+
+        <video
+            id="documentVideo"
+            autoplay
+            playsinline>
+        </video>
+
+        <img
+            id="documentPreview"
+            alt="Document preview">
+
+        <div
+            class="camera-placeholder"
+            id="documentPlaceholder">
+
+            <div class="big">📸</div>
+
+            <p>
+                Camera access is required to
+                capture your document.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <input
+        type="file"
+        id="documentFile"
+        class="file-input"
+        accept="image/*"
+        capture="environment">
+
+
+    <button
+        class="primary"
+        id="openDocumentCamera">
+        📸 CAPTURE DOCUMENT
+    </button>
+
+    <button
+        class="primary"
+        id="continueDocument"
+        style="display:none;">
+        ➜ CONTINUE
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     FACE VERIFICATION
+===================================== -->
+
+<section id="face" class="page">
+
+    <div class="topbar">
+
+        <button
+            class="back"
+            id="backFace">
+            ← Back
+        </button>
+
+        <div class="step">
+            STEP 3 / 4
+        </div>
+
+    </div>
+
+
+    <div class="kyc-icon-main">
+        🤳
+    </div>
+
+    <div class="title">
+        Face Verification
+    </div>
+
+    <div class="description">
+        Take a clear live selfie. Make sure your
+        face is visible and well lit.
+    </div>
+
+
+    <div class="camera-box">
+
+        <video
+            id="faceVideo"
+            autoplay
+            playsinline>
+        </video>
+
+        <img
+            id="facePreview"
+            alt="Face preview">
+
+        <div
+            class="camera-placeholder"
+            id="facePlaceholder">
+
+            <div class="big">🤳</div>
+
+            <p>
+                Position your face inside the
+                camera frame.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <input
+        type="file"
+        id="faceFile"
+        class="file-input"
+        accept="image/*"
+        capture="user">
+
+
+    <button
+        class="primary"
+        id="openFaceCamera">
+        🤳 START FACE VERIFICATION
+    </button>
+
+    <button
+        class="primary"
+        id="continueFace"
+        style="display:none;">
+        ➜ CONTINUE
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     LIVENESS
+===================================== -->
+
+<section id="liveness" class="page">
+
+    <div class="topbar">
+
+        <button
+            class="back"
+            id="backLiveness">
+            ← Back
+        </button>
+
+        <div class="step">
+            STEP 4 / 4
+        </div>
+
+    </div>
+
+
+    <div class="kyc-icon-main">
+        📹
+    </div>
+
+    <div class="title">
+        Liveness Check
+    </div>
+
+    <div class="description">
+        Follow the instructions to confirm
+        that you are a real person.
+    </div>
+
+
+    <div class="review-card">
+
+        <div class="review-row">
+            <span>Look straight</span>
+            <strong>👀</strong>
+        </div>
+
+        <div class="review-row">
+            <span>Move your head slowly</span>
+            <strong>↔️</strong>
+        </div>
+
+        <div class="review-row">
+            <span>Keep good lighting</span>
+            <strong>💡</strong>
+        </div>
+
+        <div class="review-row">
+            <span>Keep your face visible</span>
+            <strong>🙂</strong>
+        </div>
+
+    </div>
+
+
+    <button
+        class="primary"
+        id="completeLiveness">
+        📹 COMPLETE LIVENESS CHECK
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     REVIEW
+===================================== -->
+
+<section id="review" class="page">
+
+    <div class="topbar">
+
+        <button
+            class="back"
+            id="backReview">
+            ← Back
+        </button>
+
+        <div class="step">
+            REVIEW
+        </div>
+
+    </div>
+
+
+    <div class="kyc-icon-main">
+        📋
+    </div>
+
+    <div class="title">
+        Review Verification
+    </div>
+
+    <div class="description">
+        Review your information before submitting
+        your verification request.
+    </div>
+
+
+    <div class="review-card">
+
+        <div class="review-row">
+            <span>Document</span>
+            <strong id="reviewDocument">
+                Not selected
+            </strong>
+        </div>
+
+        <div class="review-row">
+            <span>Document Capture</span>
+            <strong>✅ Ready</strong>
+        </div>
+
+        <div class="review-row">
+            <span>Face Verification</span>
+            <strong>✅ Ready</strong>
+        </div>
+
+        <div class="review-row">
+            <span>Liveness</span>
+            <strong>✅ Completed</strong>
+        </div>
+
+    </div>
+
+
+    <div class="notice">
+        🔐 By submitting, you confirm that the
+        information and documents provided belong
+        to you and are accurate.
+    </div>
+
+
+    <button
+        class="primary"
+        id="submitKyc">
+        ✅ SUBMIT FOR REVIEW
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     SUCCESS
+===================================== -->
+
+<section id="success" class="page">
+
+    <div class="success">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            Verification Submitted
+        </h2>
+
+        <p>
+            Your KYC request has been submitted
+            successfully.
+        </p>
+
+        <p>
+            ⏳ Your account is currently under review.
+        </p>
+
+        <button
+            class="primary"
+            id="backHome">
+            🏠 BACK TO HOME
+        </button>
+
+    </div>
+
+</section>
+
 </div>
+
 
 <script>
 
-const welcome = document.getElementById("welcome");
-const kyc = document.getElementById("kyc");
+/* =====================================
+   TELEGRAM WEB APP
+===================================== */
 
-document.getElementById("getStarted").addEventListener("click", function(){
+if(window.Telegram && Telegram.WebApp){
 
-    welcome.classList.remove("active");
-    kyc.classList.add("active");
+    Telegram.WebApp.ready();
+
+    Telegram.WebApp.expand();
+
+}
+
+
+/* =====================================
+   PAGE SYSTEM
+===================================== */
+
+const pages = [
+    "welcome",
+    "kyc",
+    "document",
+    "documentCapture",
+    "face",
+    "liveness",
+    "review",
+    "success"
+];
+
+function showPage(id){
+
+    pages.forEach(function(page){
+
+        const element =
+            document.getElementById(page);
+
+        if(element){
+            element.classList.remove("active");
+        }
+
+    });
+
+    const target =
+        document.getElementById(id);
+
+    if(target){
+        target.classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =====================================
+   VARIABLES
+===================================== */
+
+let selectedDocument = "";
+
+let documentStream = null;
+let faceStream = null;
+
+
+/* =====================================
+   WELCOME
+===================================== */
+
+document
+.getElementById("getStarted")
+.addEventListener("click",function(){
+
+    showPage("kyc");
 
 });
 
-document.getElementById("back").addEventListener("click", function(){
 
-    kyc.classList.remove("active");
-    welcome.classList.add("active");
+/* =====================================
+   KYC
+===================================== */
+
+document
+.getElementById("backWelcome")
+.addEventListener("click",function(){
+
+    showPage("welcome");
 
 });
 
-document.getElementById("startKyc").addEventListener("click", function(){
 
-    alert("KYC module will open here.");
+document
+.getElementById("startKyc")
+.addEventListener("click",function(){
+
+    showPage("document");
 
 });
 
-</script>
 
-</body>
-  </html>
+/* =====================================
+   DOCUMENT TYPE
+===================================== */
+
+document
+.querySelectorAl
